@@ -1,0 +1,3 @@
+# vagrant-salt
+
+This repo is a development sandbox for Saltstack with Vagrant 
