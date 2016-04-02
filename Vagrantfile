@@ -4,6 +4,7 @@
 Vagrant.configure(2) do |config|
 
   config.vm.box = "geerlingguy/centos7"
+  config.vm.hostname = "vagrant-bench"
   config.vm.synced_folder "salt/roots/", "/srv/salt/"
   config.vm.network "forwarded_port", guest: 80, host: 8080
 

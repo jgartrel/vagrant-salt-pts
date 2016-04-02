@@ -1,3 +1,6 @@
 base:
   '*':
   - base
+
+  '*-bench*':
+  - pts
