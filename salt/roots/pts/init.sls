@@ -12,6 +12,12 @@ phoronix-test-suite:
     - home: {{ pts.home }}
 
 af-pts-repo:
+{%- if pts.symlink_repo %}
+  file.symlink:
+    - name: {{ pts.home }}/.phoronix-test-suite
+    - target: {{ pts.repo }}
+    - user: {{ pts.user }}
+{%- else %}
   git.latest:
     - name: {{ pts.repo }}
     - target: {{ pts.home }}/.phoronix-test-suite
@@ -19,3 +25,4 @@ af-pts-repo:
     - user: {{ pts.user }}
     - require:
       - pkg: git
+{%- endif %}
