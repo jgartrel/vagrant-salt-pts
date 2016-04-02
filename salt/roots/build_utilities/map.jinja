@@ -1,0 +1,9 @@
+{% set build_utilities = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['build-essential', 'autoconf']
+    },
+    'RedHat': {
+        'pkgs': ['gcc', 'gcc-c++', 'make', 'autoconf', 'automake', 
+                 'glibc-static', 'patch']
+    },
+}, grain="os_family", merge=salt['pillar.get']('build_utilities:lookup')) %}
