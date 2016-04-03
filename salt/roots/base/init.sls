@@ -1,3 +1,5 @@
-/root/test.txt:
+/srv/pillar/vagrant/init.sls:
   file.managed:
-    - contents: 'Testing 1'
+    - source: salt://base/files/pillar.sls
+    - template: jinja
+    - makedirs: True

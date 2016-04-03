@@ -7,7 +7,6 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "vagrant-bench"
   config.vm.synced_folder "salt/roots/", "/srv/salt/"
   config.vm.synced_folder "salt/pillar/", "/srv/pillar/"
-  config.vm.synced_folder "vagrant_pillar/", "/srv/pillar/vagrant"
   config.vm.synced_folder "af-pts-repo/", "/repo",
     owner: 1001, group: 1001
   config.vm.network "forwarded_port", guest: 80, host: 8080
@@ -22,6 +21,16 @@ Vagrant.configure(2) do |config|
     salt.run_highstate = true
     salt.colorize = true
     salt.log_level = 'info'
+    # Tell salt to use this the shared mount as the source repo for pts
+    salt.pillar({
+      "pts" => {
+        "lookup" => {
+          "repo" => "/repo",
+          "symlink_repo" => true
+        }
+      }
+    })
+
   end
 
 end
