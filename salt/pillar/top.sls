@@ -2,5 +2,5 @@ base:
   '*':
   - base
 
-  '*-bench*':
-  - pts
+  'vagrant*':
+  - vagrant
