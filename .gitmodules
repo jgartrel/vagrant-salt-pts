@@ -1,0 +1,4 @@
+[submodule "af-pts-repo"]
+	path = af-pts-repo
+	url = https://github.com/jgartrel/af-pts-repo.git
+	branch = master
