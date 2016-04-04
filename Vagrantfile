@@ -7,8 +7,7 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "vagrant-bench"
   config.vm.synced_folder "salt/roots/", "/srv/salt/"
   config.vm.synced_folder "salt/pillar/", "/srv/pillar/"
-  config.vm.synced_folder "af-pts-repo/", "/repo",
-    owner: 1001, group: 1001
+  config.vm.synced_folder "af-pts-repo/", "/repo"
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
   config.vm.provider "virtualbox" do |vb|
@@ -25,6 +24,8 @@ Vagrant.configure(2) do |config|
     salt.pillar({
       "pts" => {
         "lookup" => {
+          "user" => "vagrant",
+          "home" => "/home/vagrant",
           "repo" => "/repo",
           "symlink_repo" => true
         }
