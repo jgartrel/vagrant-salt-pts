@@ -20,18 +20,6 @@ Vagrant.configure(2) do |config|
     salt.run_highstate = true
     salt.colorize = true
     salt.log_level = 'info'
-    # Tell salt to use this the shared mount as the source repo for pts
-    salt.pillar({
-      "pts" => {
-        "lookup" => {
-          "user" => "vagrant",
-          "home" => "/home/vagrant",
-          "repo" => "/repo",
-          "symlink_repo" => true
-        }
-      }
-    })
-
   end
 
 end
