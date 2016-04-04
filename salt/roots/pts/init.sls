@@ -38,7 +38,7 @@ build_tests:
     - name: ./phoronix-test-suite install {{ pts.test_suite }}
     - cwd: {{ pts.home }}/.phoronix-test-suite/pts
     - user: {{ pts.user }}
-    - creates: {{ pts.home }}/.phoronix-test-suite/installed-tests
+    - creates: {{ pts.home }}/.phoronix-test-suite/installed-tests/local
 {%- else %}
   cmd.wait:
     - name: ./phoronix-test-suite force-install {{ pts.test_suite }}
