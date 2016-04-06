@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+pts:
+  repo: https://github.com/jgartrel/af-pts-repo.git
+  test_suite: local/af-system
+  symlink_repo: False
+  user: pts
+  home: /home/pts
