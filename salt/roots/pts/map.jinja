@@ -13,7 +13,8 @@ that differ from whats in defaults.yaml
         'pkgs': ['git']
     },
     'RedHat': {
-        'pkgs': ['php-cli', 'php-xml', 'bzip2', 'time', 'numactl-devel'],
+        'pkgs': ['php-cli', 'php-xml', 'bzip2', 'unzip', 'nmap-netcat',
+                 'libtool'],
     },
 }, grain="os_family", merge=salt['pillar.get']('pts:lookup')) %}
 
